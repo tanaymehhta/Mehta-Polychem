@@ -81,26 +81,55 @@ export class GoogleSheetsService {
     if (this.isInitialized) return;
     
     try {
+      // Load the document info
       await this.doc.loadInfo();
+      console.log(`Loaded document: ${this.doc.title}`);
       
       // Get the first sheet or create one if it doesn't exist
       let sheet = this.doc.sheetsByIndex[0];
       if (!sheet) {
+        console.log("No sheet found, creating a new sheet...");
         sheet = await this.doc.addSheet({ 
           title: 'Contact Form Submissions',
           headerValues: ['Timestamp', 'Name', 'Email', 'Phone', 'Message']
         });
+        console.log("New sheet created successfully");
       } else {
-        // Make sure the sheet has the correct headers
-        const headers = await sheet.headerValues;
-        if (!headers || headers.length !== 5 || 
-            headers[0] !== 'Timestamp' || 
-            headers[1] !== 'Name' || 
-            headers[2] !== 'Email' || 
-            headers[3] !== 'Phone' || 
-            headers[4] !== 'Message') {
+        console.log(`Using existing sheet: ${sheet.title}`);
+        
+        // Set headers directly without loading first since the sheet might be empty
+        try {
+          // First, check if sheet is empty by trying to get values
+          const cells = await sheet.getRows({ limit: 1 });
           
-          // Set the headers if they don't match
+          if (cells.length === 0) {
+            console.log("Sheet appears to be empty, setting headers");
+            await sheet.setHeaderRow(['Timestamp', 'Name', 'Email', 'Phone', 'Message']);
+          } else {
+            // Sheet has data, try to load headers
+            try {
+              await sheet.loadHeaderRow();
+              const headers = sheet.headerValues;
+              console.log("Current headers:", headers);
+              
+              // Make sure the headers exist and are correct
+              if (!headers || headers.length !== 5 || 
+                  headers[0] !== 'Timestamp' || 
+                  headers[1] !== 'Name' || 
+                  headers[2] !== 'Email' || 
+                  headers[3] !== 'Phone' || 
+                  headers[4] !== 'Message') {
+                
+                console.log("Headers don't match, updating...");
+                await sheet.setHeaderRow(['Timestamp', 'Name', 'Email', 'Phone', 'Message']);
+              }
+            } catch (headerError) {
+              console.log("Error loading headers, setting them manually:", headerError);
+              await sheet.setHeaderRow(['Timestamp', 'Name', 'Email', 'Phone', 'Message']);
+            }
+          }
+        } catch (sheetError) {
+          console.log("Error working with sheet, trying to set headers directly:", sheetError);
           await sheet.setHeaderRow(['Timestamp', 'Name', 'Email', 'Phone', 'Message']);
         }
       }
@@ -109,6 +138,8 @@ export class GoogleSheetsService {
       console.log("Google Sheets service initialized successfully");
     } catch (error) {
       console.error("Error initializing Google Sheets:", error);
+      // If we fail to initialize, we'll try again next time
+      this.isInitialized = false;
     }
   }
   
