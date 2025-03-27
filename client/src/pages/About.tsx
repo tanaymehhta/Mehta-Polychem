@@ -44,7 +44,7 @@ const About = () => {
           <p className="text-lg text-muted-foreground" itemProp="description">
             Over <strong>30 years</strong> of excellence in petrochemical trading, import, export, and distribution of polymers and industrial chemicals in India
           </p>
-          <meta itemProp="keywords" content="Petrochemical trading, Polymer distribution, Import export, Chemical industry in India, Premium quality polymers, Supreme Petrochemicals distributor, 30 years experience petrochemicals" />
+          <meta itemProp="keywords" content="Petrochemical trading, Polymer distribution, Import export, Chemical industry in India, Premium quality polymers, 30 years experience petrochemicals" />
           <meta itemProp="foundingDate" content="1993" />
           <meta itemProp="industry" content="Petrochemical Trading and Distribution" />
         </div>
@@ -66,10 +66,9 @@ const About = () => {
               satisfaction has been the cornerstone of our success.
             </p>
             <p>
-              Today, we take pride in being the <strong>official distributors</strong> of
-              Supreme Petrochemicals for GPPS and HIPS products and continue to
-              expand our product portfolio to meet the evolving needs of our
-              clients.
+              Today, we take pride in our <strong>extensive network</strong> of
+              suppliers and partners, allowing us to continue expanding our product
+              portfolio to meet the evolving needs of our clients.
             </p>
           </div>
           <div>
