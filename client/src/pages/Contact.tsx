@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { MapPin, Phone, Mail, Clock, Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
+import { MapPin, Phone, Mail, Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -155,43 +155,16 @@ const Contact = () => {
                 <div className="flex items-start">
                   <MapPin className="h-5 w-5 text-primary mt-1 mr-3" />
                   <p className="text-muted-foreground">
-                    123 Corporate Tower, Business District, Mumbai - 400001, Maharashtra, India
+                    307 Gemstar Commercial Complex, Ramchandra Lane, Malad West, Mumbai 400064
                   </p>
                 </div>
                 <div className="flex items-center">
                   <Phone className="h-5 w-5 text-primary mr-3" />
-                  <p className="text-muted-foreground">+91 22 1234 5678</p>
+                  <p className="text-muted-foreground">+91 022 4064 7171</p>
                 </div>
                 <div className="flex items-center">
                   <Mail className="h-5 w-5 text-primary mr-3" />
                   <p className="text-muted-foreground">info@mehtapolychem.com</p>
-                </div>
-              </div>
-            </div>
-            
-            <div>
-              <h2 className="text-2xl font-bold mb-6">Business Hours</h2>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <div className="flex items-center">
-                    <Clock className="h-5 w-5 text-primary mr-3" />
-                    <span>Monday - Friday</span>
-                  </div>
-                  <span className="text-muted-foreground">9:00 AM - 6:00 PM</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <div className="flex items-center">
-                    <Clock className="h-5 w-5 text-primary mr-3 opacity-0" />
-                    <span>Saturday</span>
-                  </div>
-                  <span className="text-muted-foreground">10:00 AM - 4:00 PM</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <div className="flex items-center">
-                    <Clock className="h-5 w-5 text-primary mr-3 opacity-0" />
-                    <span>Sunday</span>
-                  </div>
-                  <span className="text-muted-foreground">Closed</span>
                 </div>
               </div>
             </div>
@@ -226,63 +199,6 @@ const Contact = () => {
               </div>
             </div>
           </div>
-        </div>
-
-        <h2 className="text-2xl font-bold mb-6 text-center">Our Stockpoints</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <Card className="overflow-hidden">
-            <div className="h-56 overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1586528116493-a029325540f5" 
-                alt="Bhiwandi warehouse facility" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <CardContent className="p-6">
-              <h3 className="text-xl font-semibold mb-2">Bhiwandi Stockpoint</h3>
-              <div className="flex items-start mb-4">
-                <MapPin className="h-5 w-5 text-primary mt-1 mr-3" />
-                <p className="text-muted-foreground">
-                  Plot No. 123, MIDC Industrial Area, Bhiwandi, Maharashtra - 421302, India
-                </p>
-              </div>
-              <div className="flex items-center mb-4">
-                <Phone className="h-5 w-5 text-primary mr-3" />
-                <p className="text-muted-foreground">+91 98765 43210</p>
-              </div>
-              <div className="flex items-center">
-                <Mail className="h-5 w-5 text-primary mr-3" />
-                <p className="text-muted-foreground">bhiwandi@mehtapolychem.com</p>
-              </div>
-            </CardContent>
-          </Card>
-          
-          <Card className="overflow-hidden">
-            <div className="h-56 overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1484712401471-05c7215830eb" 
-                alt="Daman warehouse facility" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <CardContent className="p-6">
-              <h3 className="text-xl font-semibold mb-2">Daman Stockpoint</h3>
-              <div className="flex items-start mb-4">
-                <MapPin className="h-5 w-5 text-primary mt-1 mr-3" />
-                <p className="text-muted-foreground">
-                  Survey No. 456, Industrial Estate, Daman - 396210, Union Territory of Daman & Diu, India
-                </p>
-              </div>
-              <div className="flex items-center mb-4">
-                <Phone className="h-5 w-5 text-primary mr-3" />
-                <p className="text-muted-foreground">+91 98765 12345</p>
-              </div>
-              <div className="flex items-center">
-                <Mail className="h-5 w-5 text-primary mr-3" />
-                <p className="text-muted-foreground">daman@mehtapolychem.com</p>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </Container>
     </div>
