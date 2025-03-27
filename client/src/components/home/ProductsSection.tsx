@@ -2,12 +2,19 @@ import { useState } from "react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import { Link } from "wouter";
 import { polymerProducts } from "@/lib/data";
 
 const ProductsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
+
+  // Get counts for each category to display
+  const commodityCount = polymerProducts.filter(p => p.category === 'commodity').length;
+  const engineeringCount = polymerProducts.filter(p => p.category === 'engineering').length;
+  const masterbatchCount = polymerProducts.filter(p => p.category === 'masterbatch').length;
+  const recycledCount = polymerProducts.filter(p => p.category === 'recycled').length;
 
   const filteredProducts = activeCategory === "all" 
     ? polymerProducts.slice(0, 6)
@@ -27,49 +34,126 @@ const ProductsSection = () => {
           </p>
         </div>
         
+        {/* Product Categories Summary */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          <CategorySummaryCard 
+            title="Commodity Polymers"
+            count={commodityCount}
+            description="Standard polymers for everyday applications"
+            onClick={() => handleCategoryChange("commodity")}
+          />
+          <CategorySummaryCard 
+            title="Engineering Polymers"
+            count={engineeringCount}
+            description="High-performance resins for demanding uses"
+            onClick={() => handleCategoryChange("engineering")}
+          />
+          <CategorySummaryCard 
+            title="Masterbatches & Fillers"
+            count={masterbatchCount}
+            description="Color and additive concentrates"
+            onClick={() => handleCategoryChange("masterbatch")}
+          />
+          <CategorySummaryCard 
+            title="Recycled Polymers"
+            count={recycledCount}
+            description="Sustainable alternatives for eco-conscious applications"
+            onClick={() => handleCategoryChange("recycled")}
+          />
+        </div>
+        
+        {/* Product Filters */}
         <div className="mb-10">
           <div className="flex flex-wrap justify-center mb-8 gap-3">
             <FilterButton 
               active={activeCategory === "all"} 
               onClick={() => handleCategoryChange("all")}
             >
-              All Products
+              Featured Products
             </FilterButton>
             <FilterButton 
               active={activeCategory === "commodity"} 
               onClick={() => handleCategoryChange("commodity")}
             >
-              Commodity Polymers
+              Commodity
             </FilterButton>
             <FilterButton 
               active={activeCategory === "engineering"} 
               onClick={() => handleCategoryChange("engineering")}
             >
-              Engineering Polymers
+              Engineering
+            </FilterButton>
+            <FilterButton 
+              active={activeCategory === "masterbatch"} 
+              onClick={() => handleCategoryChange("masterbatch")}
+            >
+              Masterbatches
             </FilterButton>
             <FilterButton 
               active={activeCategory === "recycled"} 
               onClick={() => handleCategoryChange("recycled")}
             >
-              Recycled Polymers
+              Recycled
             </FilterButton>
           </div>
         </div>
         
+        {/* Product Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
         
+        {/* View All CTA */}
         <div className="text-center mt-12">
-          <p className="mb-6 text-muted-foreground">Looking for a specific polymer not listed here?</p>
-          <Button asChild size="lg">
+          <Button asChild className="mb-8">
+            <Link href="/products">
+              <span>View All {polymerProducts.length} Products</span>
+              <ChevronRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+          <p className="text-muted-foreground mb-4">Looking for a specific polymer not listed here?</p>
+          <Button asChild variant="outline">
             <Link href="/contact">Contact Us for Custom Requirements</Link>
           </Button>
         </div>
       </Container>
     </section>
+  );
+};
+
+interface CategorySummaryCardProps {
+  title: string;
+  count: number;
+  description: string;
+  onClick: () => void;
+}
+
+const CategorySummaryCard = ({ title, count, description, onClick }: CategorySummaryCardProps) => {
+  return (
+    <div 
+      className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all cursor-pointer"
+      onClick={onClick}
+    >
+      <div className="flex flex-col h-full">
+        <div>
+          <h3 className="text-lg font-semibold mb-2">{title}</h3>
+          <Badge variant="secondary" className="mb-3">{count} Products</Badge>
+        </div>
+        <p className="text-sm text-muted-foreground mb-4">{description}</p>
+        <div className="mt-auto">
+          <Button 
+            variant="link" 
+            className="p-0 h-auto text-sm flex items-center"
+            onClick={onClick}
+          >
+            <span>View Products</span>
+            <ChevronRight className="ml-1 h-3 w-3" />
+          </Button>
+        </div>
+      </div>
+    </div>
   );
 };
 
@@ -116,14 +200,27 @@ const ProductCard = ({ product }: ProductCardProps) => {
         />
       </div>
       <CardContent className="p-6">
-        <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
+        <div className="flex justify-between items-start mb-2">
+          <h3 className="text-xl font-semibold">{product.name}</h3>
+          <Badge className="capitalize">{product.category}</Badge>
+        </div>
         <p className="text-muted-foreground mb-4">{product.description}</p>
-        <Link href="/contact">
-          <a className="text-primary font-medium hover:text-primary/80 transition-all inline-flex items-center">
-            Inquire Now
-            <ArrowRight className="ml-1 h-4 w-4" />
-          </a>
-        </Link>
+        <div className="flex justify-between items-center">
+          <div className="flex flex-wrap gap-2">
+            {product.applications.slice(0, 2).map((app, index) => (
+              <Badge key={index} variant="outline">{app}</Badge>
+            ))}
+            {product.applications.length > 2 && (
+              <Badge variant="outline">+{product.applications.length - 2}</Badge>
+            )}
+          </div>
+          <Button asChild variant="link" className="p-0">
+            <Link href={`/products`}>
+              <span>Details</span>
+              <ArrowRight className="ml-1 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
       </CardContent>
     </Card>
   );

@@ -1,63 +1,158 @@
 // Polymer Products Data
 export const polymerProducts = [
+  // Commodity Polymers
   {
     id: 1,
+    name: "General Purpose Polystyrene (GPPS)",
+    description: "A clear, rigid plastic with excellent transparency and processability for packaging and consumer goods.",
+    image: "https://images.unsplash.com/photo-1620115245028-87a2eef651bf",
+    category: "commodity",
+    applications: ["Packaging", "Disposables", "Consumer Goods"]
+  },
+  {
+    id: 2,
+    name: "High-Density Polyethylene (HDPE)",
+    description: "Strong, chemical-resistant polymer used in containers, pipes, and plastic lumber.",
+    image: "https://images.unsplash.com/photo-1571115705854-8dc2c8401a55",
+    category: "commodity",
+    applications: ["Containers", "Pipes", "Plastic Lumber"]
+  },
+  {
+    id: 3,
+    name: "Low-Density Polyethylene (LDPE)",
+    description: "Flexible polymer widely used in film applications, packaging, and wire coverings.",
+    image: "https://images.unsplash.com/photo-1620115245028-87a2eef651bf",
+    category: "commodity",
+    applications: ["Plastic Bags", "Packaging Films", "Wire Coverings"]
+  },
+  {
+    id: 4,
+    name: "Linear Low-Density Polyethylene (LLDPE)",
+    description: "Durable polymer with enhanced tensile strength ideal for stretch films and packaging.",
+    image: "https://images.unsplash.com/photo-1581094798414-6945bd8d21ad",
+    category: "commodity",
+    applications: ["Stretch Films", "Flexible Packaging", "Industrial Liners"]
+  },
+  {
+    id: 5,
+    name: "High Impact Polystyrene (HIPS)",
+    description: "Impact-resistant polystyrene from Supreme Petrochemicals for durable product applications.",
+    image: "https://images.unsplash.com/photo-1620115245028-87a2eef651bf",
+    category: "commodity",
+    applications: ["Refrigerator Liners", "Toys", "Electronic Housings"]
+  },
+  {
+    id: 6,
     name: "Polypropylene (PP)",
-    description: "High-quality polypropylene for diverse applications including packaging, automotive, and consumer goods.",
+    description: "Versatile polymer with excellent chemical resistance and high melting point for diverse applications.",
     image: "https://images.unsplash.com/photo-1620115245028-87a2eef651bf",
     category: "commodity",
     applications: ["Packaging", "Automotive", "Consumer Goods"]
   },
   {
-    id: 2,
+    id: 7,
     name: "Polyvinyl Chloride (PVC)",
-    description: "Versatile PVC materials for construction, piping, medical devices, and more.",
-    image: "https://images.unsplash.com/photo-1620115245028-87a2eef651bf",
+    description: "Durable, cost-effective polymer for construction, piping, medical devices, and more.",
+    image: "https://images.unsplash.com/photo-1607240367835-bdbf309b17da",
     category: "commodity",
     applications: ["Construction", "Piping", "Medical Devices"]
   },
+  
+  // Engineering Polymers
   {
-    id: 3,
-    name: "High-Density Polyethylene (HDPE)",
-    description: "Durable and strong HDPE for industrial containers, pipes, and packaging applications.",
-    image: "https://images.unsplash.com/photo-1620115245028-87a2eef651bf",
-    category: "commodity",
-    applications: ["Containers", "Pipes", "Packaging"]
-  },
-  {
-    id: 4,
-    name: "Acrylonitrile Butadiene Styrene (ABS)",
-    description: "Durable ABS polymers for automotive parts, electronics, and industrial applications.",
+    id: 8,
+    name: "Nylon 6",
+    description: "Versatile polymer with excellent toughness and flexibility for textile and industrial applications.",
     image: "https://images.unsplash.com/photo-1589928814650-1c98ee65346e",
     category: "engineering",
-    applications: ["Automotive", "Electronics", "Industrial"]
+    applications: ["Textiles", "Mechanical Parts", "Industrial Components"]
   },
   {
-    id: 5,
+    id: 9,
+    name: "Nylon 66",
+    description: "High-strength polyamide offering superior heat resistance and durability for demanding applications.",
+    image: "https://images.unsplash.com/photo-1589928814650-1c98ee65346e",
+    category: "engineering",
+    applications: ["Automotive Parts", "Electrical Components", "Industrial Gears"]
+  },
+  {
+    id: 10,
+    name: "Acrylonitrile Butadiene Styrene (ABS)",
+    description: "Tough, impact-resistant polymer with excellent dimensional stability for precision applications.",
+    image: "https://images.unsplash.com/photo-1589928814650-1c98ee65346e",
+    category: "engineering",
+    applications: ["Automotive Parts", "Electronics", "Consumer Goods"]
+  },
+  {
+    id: 11,
+    name: "Ethylene Vinyl Acetate (EVA)",
+    description: "Flexible polymer known for its shock absorption, UV resistance, and chemical stability.",
+    image: "https://images.unsplash.com/photo-1589928814650-1c98ee65346e",
+    category: "engineering",
+    applications: ["Footwear", "Sports Equipment", "Solar Panels"]
+  },
+  {
+    id: 12,
+    name: "Compounded Polypropylene",
+    description: "Custom-engineered polypropylene with enhanced properties for specific applications.",
+    image: "https://images.unsplash.com/photo-1585203810495-5fa5d3f5060b",
+    category: "engineering",
+    applications: ["Automotive", "Appliances", "Industrial Components"]
+  },
+  {
+    id: 13,
     name: "Styrene Acrylonitrile (SAN)",
-    description: "Clear and rigid SAN polymers with excellent optical properties for various applications.",
+    description: "Clear, rigid polymer with excellent optical properties for transparent applications.",
     image: "https://images.unsplash.com/photo-1589928814650-1c98ee65346e",
     category: "engineering",
     applications: ["Optical Parts", "Food Containers", "Kitchenware"]
   },
+  
+  // Masterbatches and Fillers
   {
-    id: 6,
-    name: "Nylon",
-    description: "Strong, heat-resistant nylon polymers for engineering applications requiring durability.",
-    image: "https://images.unsplash.com/photo-1589928814650-1c98ee65346e",
-    category: "engineering",
-    applications: ["Mechanical Parts", "Gears", "Bearings"]
+    id: 14,
+    name: "White Masterbatch",
+    description: "Titanium dioxide-based additive for opacity, whiteness, UV protection, and thermal stability.",
+    image: "https://images.unsplash.com/photo-1567225591450-06036b3392a6",
+    category: "masterbatch",
+    applications: ["Packaging", "Consumer Goods", "Construction Materials"]
   },
   {
-    id: 7,
+    id: 15,
+    name: "Black Masterbatch",
+    description: "Carbon black-based additive providing deep black coloration and UV resistance.",
+    image: "https://images.unsplash.com/photo-1567225591450-06036b3392a6",
+    category: "masterbatch",
+    applications: ["Automotive", "Electronics", "Industrial Products"]
+  },
+  {
+    id: 16,
+    name: "Colored Masterbatch",
+    description: "Pigment-based masterbatch available in Pantone grades for customized color solutions.",
+    image: "https://images.unsplash.com/photo-1567225591450-06036b3392a6",
+    category: "masterbatch",
+    applications: ["Consumer Products", "Packaging", "Custom Applications"]
+  },
+  {
+    id: 17,
+    name: "Filler Masterbatch",
+    description: "Cost-effective additive with inorganic fillers to enhance stiffness and reduce production costs.",
+    image: "https://images.unsplash.com/photo-1567225591450-06036b3392a6",
+    category: "masterbatch",
+    applications: ["Construction Materials", "Industrial Products", "Consumer Goods"]
+  },
+  
+  // Recycled Polymers
+  {
+    id: 18,
     name: "Recycled Polyethylene",
-    description: "Environmentally friendly recycled polyethylene for sustainable manufacturing.",
+    description: "Environmentally friendly recycled polyethylene for sustainable manufacturing applications.",
     image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b",
     category: "recycled",
     applications: ["Packaging", "Construction", "Agriculture"]
   },
   {
-    id: 8,
+    id: 19,
     name: "Recycled Polypropylene",
     description: "Post-consumer recycled polypropylene for eco-friendly product manufacturing.",
     image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b",
@@ -65,12 +160,12 @@ export const polymerProducts = [
     applications: ["Automotive", "Furniture", "Consumer Goods"]
   },
   {
-    id: 9,
-    name: "General Purpose Polystyrene (GPPS)",
-    description: "Crystal clear GPPS products from Supreme Petrochemicals for transparent applications.",
-    image: "https://images.unsplash.com/photo-1620115245028-87a2eef651bf",
-    category: "commodity",
-    applications: ["Packaging", "Disposables", "Consumer Electronics"]
+    id: 20,
+    name: "Recycled PET",
+    description: "Sustainable recycled polyethylene terephthalate for packaging and textile applications.",
+    image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b",
+    category: "recycled",
+    applications: ["Bottles", "Packaging", "Textiles"]
   }
 ];
 
