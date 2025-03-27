@@ -3,8 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { 
-  Award, TrendingUp, Users, Recycle, Heart, 
-  ShieldCheck, BarChart3, MapPin, GraduationCap 
+  Award, TrendingUp, Users, Recycle, MapPin
 } from "lucide-react";
 
 const About = () => {
@@ -23,29 +22,6 @@ const About = () => {
       title: "Comprehensive Inventory",
       description: "Wide range of commodity and engineering polymers for diverse industry needs",
       icon: TrendingUp,
-    },
-    {
-      title: "Technical Expertise",
-      description: "Knowledgeable team providing technical support and polymer selection guidance",
-      icon: GraduationCap,
-    },
-  ];
-
-  const values = [
-    {
-      title: "Customer Focus",
-      description: "We prioritize our customers' needs and strive to exceed their expectations with exceptional service and quality products.",
-      icon: Heart,
-    },
-    {
-      title: "Quality Assurance",
-      description: "We are committed to providing the highest quality polymers that meet international standards and specifications.",
-      icon: ShieldCheck,
-    },
-    {
-      title: "Innovation",
-      description: "We continuously explore new opportunities, products, and sustainable solutions to stay ahead in the evolving market.",
-      icon: BarChart3,
     },
   ];
 
@@ -93,51 +69,26 @@ const About = () => {
           </div>
         </div>
 
-        {/* Our Values Section */}
+        {/* Our Key Strengths Section */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Our Values</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {values.map((value, index) => {
-              const IconComponent = value.icon;
+          <h2 className="text-3xl font-bold mb-6 text-center">Our Key Strengths</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {strengths.map((strength, index) => {
+              const IconComponent = strength.icon;
               return (
-                <Card key={index} className="border-t-4 border-t-primary hover:shadow-md transition-all">
-                  <CardContent className="p-6">
-                    <div className="w-12 h-12 bg-primary/10 flex items-center justify-center rounded-full mb-4">
-                      <IconComponent className="text-primary h-6 w-6" />
+                <Card key={index} className="border-l-4 border-l-primary hover:shadow-md transition-all">
+                  <CardContent className="p-5">
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-12 h-12 bg-primary/10 flex items-center justify-center rounded-full mb-4">
+                        <IconComponent className="h-6 w-6 text-primary" />
+                      </div>
+                      <h4 className="font-bold text-lg mb-2">{strength.title}</h4>
+                      <p className="text-muted-foreground">{strength.description}</p>
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                    <p className="text-muted-foreground">{value.description}</p>
                   </CardContent>
                 </Card>
               );
             })}
-          </div>
-        </div>
-
-        {/* Our Strengths Section */}
-        <div className="mb-16">
-          <div className="bg-muted p-8 rounded-lg">
-            <h2 className="text-3xl font-bold mb-6 text-center">Our Key Strengths</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {strengths.map((strength, index) => {
-                const IconComponent = strength.icon;
-                return (
-                  <Card key={index} className="border-l-4 border-l-primary hover:shadow-md transition-all">
-                    <CardContent className="p-5">
-                      <div className="flex items-start">
-                        <div className="mr-4 text-primary">
-                          <IconComponent className="h-6 w-6" />
-                        </div>
-                        <div>
-                          <h4 className="font-bold text-lg mb-1">{strength.title}</h4>
-                          <p className="text-muted-foreground">{strength.description}</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
           </div>
         </div>
 
