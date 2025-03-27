@@ -89,22 +89,22 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-16 bg-neutral-800 text-white">
+    <section id="contact" className="py-16 bg-white">
       <Container>
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
-          <p className="text-neutral-300 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold mb-4 text-neutral-900">Contact Us</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             Have questions or need a quote? Our team is ready to assist you.
           </p>
         </div>
         
         <div className="flex flex-col md:flex-row gap-12">
-          <div className="md:w-1/2">
-            <h3 className="text-xl font-semibold mb-6">Get in Touch</h3>
+          <div className="md:w-1/2 bg-primary/5 p-6 rounded-lg border border-primary/20">
+            <h3 className="text-xl font-semibold mb-6 text-neutral-900">Get in Touch</h3>
             
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
-                <Label htmlFor="name" className="text-neutral-300">Your Name</Label>
+                <Label htmlFor="name" className="text-neutral-700">Your Name</Label>
                 <Input 
                   type="text" 
                   id="name"
@@ -112,13 +112,13 @@ const ContactSection = () => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Enter your name"
-                  className="bg-neutral-700 border-neutral-600 text-white placeholder:text-neutral-400"
+                  className="bg-white border-neutral-300"
                 />
-                {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
+                {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
               </div>
               
               <div>
-                <Label htmlFor="email" className="text-neutral-300">Email Address</Label>
+                <Label htmlFor="email" className="text-neutral-700">Email Address</Label>
                 <Input 
                   type="email" 
                   id="email"
@@ -126,13 +126,13 @@ const ContactSection = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Enter your email"
-                  className="bg-neutral-700 border-neutral-600 text-white placeholder:text-neutral-400"
+                  className="bg-white border-neutral-300"
                 />
-                {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
+                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
               </div>
               
               <div>
-                <Label htmlFor="phone" className="text-neutral-300">Phone Number</Label>
+                <Label htmlFor="phone" className="text-neutral-700">Phone Number</Label>
                 <Input 
                   type="tel" 
                   id="phone"
@@ -140,13 +140,13 @@ const ContactSection = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="Enter your phone number"
-                  className="bg-neutral-700 border-neutral-600 text-white placeholder:text-neutral-400"
+                  className="bg-white border-neutral-300"
                 />
-                {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
+                {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
               </div>
               
               <div>
-                <Label htmlFor="message" className="text-neutral-300">Message</Label>
+                <Label htmlFor="message" className="text-neutral-700">Message</Label>
                 <Textarea 
                   id="message"
                   name="message"
@@ -154,14 +154,14 @@ const ContactSection = () => {
                   onChange={handleChange}
                   rows={4} 
                   placeholder="Tell us about your requirements"
-                  className="bg-neutral-700 border-neutral-600 text-white placeholder:text-neutral-400"
+                  className="bg-white border-neutral-300"
                 />
-                {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message}</p>}
+                {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
               </div>
               
               <Button 
                 type="submit" 
-                className="w-full bg-primary hover:bg-primary/90"
+                className="w-full"
                 disabled={contactMutation.isPending}
               >
                 {contactMutation.isPending ? "Sending..." : "Send Message"}
@@ -170,40 +170,40 @@ const ContactSection = () => {
           </div>
           
           <div className="md:w-1/2">
-            <h3 className="text-xl font-semibold mb-6">Corporate Office</h3>
+            <h3 className="text-xl font-semibold mb-6 text-neutral-900">Corporate Office</h3>
             
             <div className="space-y-4 mb-8">
               <div className="flex items-start">
                 <MapPin className="text-primary h-5 w-5 mr-3 mt-1" />
-                <p className="text-neutral-300">
+                <p className="text-neutral-700">
                   307 Gemstar Commercial Complex, Ramchandra Lane, Malad West, Mumbai 400064
                 </p>
               </div>
               
               <div className="flex items-center">
                 <Phone className="text-primary h-5 w-5 mr-3" />
-                <p className="text-neutral-300">+91 022 4064 7171</p>
+                <p className="text-neutral-700">+91 022 4064 7171</p>
               </div>
               
               <div className="flex items-center">
                 <Mail className="text-primary h-5 w-5 mr-3" />
-                <p className="text-neutral-300">info@mehtapolychem.com</p>
+                <p className="text-neutral-700">info@mehtapolychem.com</p>
               </div>
             </div>
             
-            <h3 className="text-xl font-semibold mb-6">Connect With Us</h3>
+            <h3 className="text-xl font-semibold mb-6 text-neutral-900">Connect With Us</h3>
             
             <div className="flex space-x-4">
-              <a href="#" className="bg-neutral-700 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-all">
+              <a href="#" className="bg-muted hover:bg-primary hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-all">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="bg-neutral-700 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-all">
+              <a href="#" className="bg-muted hover:bg-primary hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-all">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="bg-neutral-700 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-all">
+              <a href="#" className="bg-muted hover:bg-primary hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-all">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="bg-neutral-700 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-all">
+              <a href="#" className="bg-muted hover:bg-primary hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-all">
                 <Instagram className="h-5 w-5" />
               </a>
             </div>
