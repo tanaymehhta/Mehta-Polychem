@@ -25,17 +25,17 @@ const ProductsSection = () => {
   };
 
   return (
-    <section id="products" className="py-16 bg-muted">
+    <section id="products" className="py-10 sm:py-16 bg-muted">
       <Container>
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-neutral-900 mb-4">Product Portfolio</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-3 sm:mb-4">Product Portfolio</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto px-4">
             Explore our comprehensive range of polymers catering to diverse industrial applications.
           </p>
         </div>
         
         {/* Product Categories Summary */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8 sm:mb-12 px-2 sm:px-0">
           <CategorySummaryCard 
             title="Commodity Polymers"
             count={commodityCount}
@@ -63,8 +63,8 @@ const ProductsSection = () => {
         </div>
         
         {/* Product Filters */}
-        <div className="mb-10">
-          <div className="flex flex-wrap justify-center mb-8 gap-3">
+        <div className="mb-8 sm:mb-10 px-2 sm:px-0">
+          <div className="flex flex-wrap justify-center mb-6 sm:mb-8 gap-2 sm:gap-3">
             <FilterButton 
               active={activeCategory === "all"} 
               onClick={() => handleCategoryChange("all")}
@@ -85,7 +85,7 @@ const ProductsSection = () => {
             </FilterButton>
             {/* Use a regular button for the masterbatches filter since we're redirecting */}
             <button
-              className={`py-2 px-5 rounded-full transition-all ${
+              className={`py-2 px-3 sm:px-5 text-sm sm:text-base rounded-full transition-all ${
                 activeCategory === "masterbatch" 
                   ? "bg-primary text-white" 
                   : "bg-white text-neutral-800 hover:bg-neutral-200"
@@ -106,22 +106,22 @@ const ProductsSection = () => {
         </div>
         
         {/* Product Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 px-2 sm:px-0">
           {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
         
         {/* View All CTA */}
-        <div className="text-center mt-12">
-          <Button asChild className="mb-8">
+        <div className="text-center mt-8 sm:mt-12 px-4">
+          <Button asChild className="mb-6 sm:mb-8 w-full sm:w-auto">
             <Link href="/products">
               <span>View All {polymerProducts.length} Products</span>
               <ChevronRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
-          <p className="text-muted-foreground mb-4">Looking for a specific polymer not listed here?</p>
-          <Button asChild variant="outline">
+          <p className="text-muted-foreground mb-3 sm:mb-4">Looking for a specific polymer not listed here?</p>
+          <Button asChild variant="outline" className="w-full sm:w-auto">
             <Link href="/contact">Contact Us for Custom Requirements</Link>
           </Button>
         </div>
@@ -187,15 +187,15 @@ const CategorySummaryCard = ({ title, count, description, onClick }: CategorySum
   
   return (
     <div 
-      className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all cursor-pointer"
+      className="bg-white p-4 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-all cursor-pointer"
       onClick={handleClick}
     >
       <div className="flex flex-col h-full">
         <div>
-          <h3 className="text-lg font-semibold mb-2">{title}</h3>
-          <Badge variant="secondary" className="mb-3">{count} Products</Badge>
+          <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">{title}</h3>
+          <Badge variant="secondary" className="mb-2 sm:mb-3 text-xs sm:text-sm">{count} Products</Badge>
         </div>
-        <p className="text-sm text-muted-foreground mb-4">{description}</p>
+        <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">{description}</p>
         <div className="mt-auto">
           <ActionButton />
         </div>
@@ -213,7 +213,7 @@ interface FilterButtonProps {
 const FilterButton = ({ active, onClick, children }: FilterButtonProps) => {
   return (
     <button
-      className={`py-2 px-5 rounded-full transition-all ${
+      className={`py-1.5 sm:py-2 px-3 sm:px-5 text-sm sm:text-base rounded-full transition-all ${
         active 
           ? "bg-primary text-white" 
           : "bg-white text-neutral-800 hover:bg-neutral-200"
@@ -259,33 +259,33 @@ const ProductCard = ({ product }: ProductCardProps) => {
       );
       
   return (
-    <Card className="overflow-hidden shadow-md hover:shadow-lg transition-all">
-      <div className="h-48 overflow-hidden">
+    <Card className="overflow-hidden shadow-md hover:shadow-lg transition-all h-full">
+      <div className="h-36 sm:h-48 overflow-hidden">
         <img 
           src={product.image} 
           alt={product.name} 
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
         />
       </div>
-      <CardContent className="p-6">
+      <CardContent className="p-4 sm:p-6">
         <div className="flex justify-between items-start mb-2">
-          <h3 className="text-xl font-semibold">{product.name}</h3>
-          <Badge className="capitalize">{product.category}</Badge>
+          <h3 className="text-lg sm:text-xl font-semibold">{product.name}</h3>
+          <Badge className="capitalize text-xs sm:text-sm">{product.category}</Badge>
         </div>
-        <p className="text-muted-foreground mb-4">{product.description}</p>
-        <div className="flex justify-between items-center">
-          <div className="flex flex-wrap gap-2">
+        <p className="text-sm text-muted-foreground mb-3 sm:mb-4 line-clamp-3">{product.description}</p>
+        <div className="flex flex-wrap md:flex-nowrap justify-between items-center gap-2">
+          <div className="flex flex-wrap gap-1 sm:gap-2">
             {product.applications.slice(0, 2).map((app, index) => (
-              <Badge key={index} variant="outline">{app}</Badge>
+              <Badge key={index} variant="outline" className="text-xs">{app}</Badge>
             ))}
             {product.applications.length > 2 && (
-              <Badge variant="outline">+{product.applications.length - 2}</Badge>
+              <Badge variant="outline" className="text-xs">+{product.applications.length - 2}</Badge>
             )}
           </div>
-          <Button asChild variant="link" className="p-0">
+          <Button asChild variant="link" className="p-0 ml-auto">
             <LinkComponent>
-              <span>{isMasterbatch ? "Buy Now" : "Details"}</span>
-              <ArrowRight className="ml-1 h-4 w-4" />
+              <span className="text-sm sm:text-base">{isMasterbatch ? "Buy Now" : "Details"}</span>
+              <ArrowRight className="ml-1 h-3 w-3 sm:h-4 sm:w-4" />
             </LinkComponent>
           </Button>
         </div>

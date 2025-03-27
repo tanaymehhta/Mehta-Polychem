@@ -51,28 +51,28 @@ const Header = () => {
         scrolled || isMenuOpen ? "bg-white shadow-md" : "bg-white/95"
       )}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center py-4">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex justify-between items-center py-3 md:py-4">
           {/* Logo */}
           <Link href="/">
             <div className="flex items-center cursor-pointer">
               <img 
                 src={mehtaLogo} 
                 alt="Mehta Polychem LLP - Dealers & Importer of Polymers" 
-                className="h-12 md:h-14"
+                className="h-10 md:h-12 lg:h-14"
               />
             </div>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:block">
-            <ul className="flex space-x-8">
+            <ul className="flex space-x-4 lg:space-x-8">
               {navLinks.map((link) => (
                 <li key={link.path}>
                   <Link 
                     href={link.path}
                     className={cn(
-                      "font-medium transition-colors",
+                      "font-medium transition-colors px-2 py-1 inline-block",
                       isActive(link.path)
                         ? "text-primary font-semibold"
                         : "text-neutral-800 hover:text-primary"
@@ -92,11 +92,12 @@ const Header = () => {
               size="icon"
               onClick={toggleMenu}
               aria-label="Menu"
+              className="p-1"
             >
               {isMenuOpen ? (
-                <X className="h-6 w-6" />
+                <X className="h-5 w-5" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <Menu className="h-5 w-5" />
               )}
             </Button>
           </div>
@@ -106,25 +107,27 @@ const Header = () => {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden bg-white shadow-lg absolute top-full left-0 w-full">
-          <div className="container mx-auto px-4 py-3">
-            <ul className="space-y-4">
-              {navLinks.map((link) => (
-                <li key={link.path}>
-                  <Link 
-                    href={link.path}
-                    className={cn(
-                      "block py-2 font-medium transition-colors",
-                      isActive(link.path)
-                        ? "text-primary font-semibold"
-                        : "text-neutral-800 hover:text-primary"
-                    )}
-                    onClick={closeMenu}
-                  >
-                    {link.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className="container mx-auto px-4 py-4">
+            <nav>
+              <ul className="space-y-3">
+                {navLinks.map((link) => (
+                  <li key={link.path}>
+                    <Link 
+                      href={link.path}
+                      className={cn(
+                        "block py-2 px-3 rounded-md font-medium transition-colors",
+                        isActive(link.path)
+                          ? "text-primary font-semibold bg-neutral-50"
+                          : "text-neutral-800 hover:text-primary hover:bg-neutral-50"
+                      )}
+                      onClick={closeMenu}
+                    >
+                      {link.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
         </div>
       )}
