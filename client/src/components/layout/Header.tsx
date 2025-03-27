@@ -67,17 +67,16 @@ const Header = () => {
             <ul className="flex space-x-8">
               {navLinks.map((link) => (
                 <li key={link.path}>
-                  <Link href={link.path}>
-                    <a
-                      className={cn(
-                        "font-medium transition-colors",
-                        isActive(link.path)
-                          ? "text-primary font-semibold"
-                          : "text-neutral-800 hover:text-primary"
-                      )}
-                    >
-                      {link.title}
-                    </a>
+                  <Link 
+                    href={link.path}
+                    className={cn(
+                      "font-medium transition-colors",
+                      isActive(link.path)
+                        ? "text-primary font-semibold"
+                        : "text-neutral-800 hover:text-primary"
+                    )}
+                  >
+                    {link.title}
                   </Link>
                 </li>
               ))}
@@ -109,18 +108,17 @@ const Header = () => {
             <ul className="space-y-4">
               {navLinks.map((link) => (
                 <li key={link.path}>
-                  <Link href={link.path}>
-                    <a
-                      className={cn(
-                        "block py-2 font-medium transition-colors",
-                        isActive(link.path)
-                          ? "text-primary font-semibold"
-                          : "text-neutral-800 hover:text-primary"
-                      )}
-                      onClick={closeMenu}
-                    >
-                      {link.title}
-                    </a>
+                  <Link 
+                    href={link.path}
+                    className={cn(
+                      "block py-2 font-medium transition-colors",
+                      isActive(link.path)
+                        ? "text-primary font-semibold"
+                        : "text-neutral-800 hover:text-primary"
+                    )}
+                    onClick={closeMenu}
+                  >
+                    {link.title}
                   </Link>
                 </li>
               ))}
