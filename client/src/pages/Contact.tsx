@@ -172,6 +172,7 @@ const Contact = () => {
                     <span itemProp="addressRegion">Mumbai</span> 
                     <span itemProp="postalCode">400064</span>
                     <meta itemProp="addressCountry" content="India" />
+<meta itemProp="legalName" content="Mehta Polychem LLP" />
                   </p>
                 </div>
                 <div className="flex items-center">

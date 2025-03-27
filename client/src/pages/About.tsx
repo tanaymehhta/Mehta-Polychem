@@ -29,18 +29,18 @@ const About = () => {
   return (
     <div className="pt-24 pb-16">
       <Helmet>
-        <title>About Mehta Polychem - Leading Petrochemical Trading Company</title>
+        <title>About Mehta Polychem LLP - Leading Petrochemical Trading Company</title>
         <meta name="description" content="Over 30 years of excellence in petrochemical trading, import, export, and distribution of polymers and industrial chemicals in India" />
         <meta name="keywords" content="Petrochemical trading history, Polymer distribution company, Import export business, Chemical industry in India, Premium polymer suppliers, 30 years experience, Bhiwandi stockpoint, Daman stockpoint" />
         <link rel="canonical" href="https://www.mehtapolychem.com/about" />
-        <meta property="og:title" content="About Mehta Polychem - Leading Petrochemical Trading Company" />
-        <meta property="og:description" content="Founded in 1993, Mehta Polychem has grown into a premier petrochemical trading company with nationwide presence. Official distributors of Supreme Petrochemicals." />
+        <meta property="og:title" content="About Mehta Polychem LLP - Leading Petrochemical Trading Company" />
+        <meta property="og:description" content="Founded in 1993, Mehta Polychem LLP has grown into a premier petrochemical trading company with nationwide presence. Official distributors of Supreme Petrochemicals." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.mehtapolychem.com/about" />
       </Helmet>
       <Container>
         <div className="max-w-3xl mx-auto text-center mb-12" itemScope itemType="https://schema.org/Organization">
-          <h1 className="text-4xl font-bold mb-4" itemProp="name">About Mehta Polychem - Leading Petrochemical Trading Company</h1>
+          <h1 className="text-4xl font-bold mb-4" itemProp="name">About Mehta Polychem LLP - Leading Petrochemical Trading Company</h1>
           <p className="text-lg text-muted-foreground" itemProp="description">
             Over <strong>30 years</strong> of excellence in petrochemical trading, import, export, and distribution of polymers and industrial chemicals in India
           </p>
@@ -54,7 +54,7 @@ const About = () => {
           <div>
             <h2 className="text-3xl font-bold mb-6">Our Story</h2>
             <p className="mb-4">
-              Mehta Polychem was founded in <strong>1993</strong> with a vision to become a
+              Mehta Polychem LLP was founded in <strong>1993</strong> with a vision to become a
               <strong> leading distributor</strong> of polymers in India. What started as a small
               trading business has now grown into a <strong>prominent name</strong> in the
               polymer industry with a nationwide presence.
@@ -123,7 +123,7 @@ const About = () => {
                 <meta itemProp="category" content="Petrochemicals, Polymers" />
               </CardContent>
             </Card>
-            
+
             <Card className="hover:shadow-md" itemScope itemType="https://schema.org/Product" itemProp="itemListElement">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
@@ -136,7 +136,7 @@ const About = () => {
                 <meta itemProp="category" content="Petrochemicals, Engineering Polymers" />
               </CardContent>
             </Card>
-            
+
             <Card className="hover:shadow-md" itemScope itemType="https://schema.org/Product" itemProp="itemListElement">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
@@ -149,7 +149,7 @@ const About = () => {
                 <meta itemProp="category" content="Petrochemicals, Additives" />
               </CardContent>
             </Card>
-            
+
             <Card className="hover:shadow-md" itemScope itemType="https://schema.org/Product" itemProp="itemListElement">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
