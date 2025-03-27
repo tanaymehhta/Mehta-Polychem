@@ -17,8 +17,8 @@ const ProductsSection = () => {
   const recycledCount = polymerProducts.filter(p => p.category === 'recycled').length;
 
   const filteredProducts = activeCategory === "all" 
-    ? polymerProducts.slice(0, 6)
-    : polymerProducts.filter(product => product.category === activeCategory).slice(0, 6);
+    ? polymerProducts.slice(0, 3)
+    : polymerProducts.filter(product => product.category === activeCategory).slice(0, 3);
 
   const handleCategoryChange = (category: string) => {
     setActiveCategory(category);
