@@ -16,15 +16,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const validatedData = contactFormSchema.parse(req.body);
       
-      // In a real application, you would save this to a database
-      // or send an email notification here
-      
-      // Simulate a brief delay as if processing the data
-      await new Promise(resolve => setTimeout(resolve, 500));
+      // Store the submission in memory
+      const submission = await storage.createContactSubmission(validatedData);
       
       res.status(200).json({ 
         success: true, 
-        message: "Contact form submission received successfully" 
+        message: "Contact form submission received successfully",
+        submission
       });
     } catch (error) {
       if (error instanceof z.ZodError) {
