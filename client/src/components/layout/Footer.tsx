@@ -78,13 +78,7 @@ const Footer = () => {
                   </a>
                 </Link>
               </li>
-              <li>
-                <Link href="/blog">
-                  <a className="text-neutral-400 hover:text-primary transition-all">
-                    Blog
-                  </a>
-                </Link>
-              </li>
+
               <li>
                 <Link href="/contact">
                   <a className="text-neutral-400 hover:text-primary transition-all">
@@ -144,12 +138,12 @@ const Footer = () => {
               <li className="flex items-start">
                 <MapPin className="text-primary h-5 w-5 mr-3 mt-1" />
                 <span className="text-neutral-400">
-                  123 Corporate Tower, Business District, Mumbai - 400001, India
+                  307 Gemstar Commercial Complex, Ramchandra Lane, Malad West, Mumbai 400064
                 </span>
               </li>
               <li className="flex items-center">
                 <Phone className="text-primary h-5 w-5 mr-3" />
-                <span className="text-neutral-400">+91 22 1234 5678</span>
+                <span className="text-neutral-400">+91 022 4064 7171</span>
               </li>
               <li className="flex items-center">
                 <Mail className="text-primary h-5 w-5 mr-3" />

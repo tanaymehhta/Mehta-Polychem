@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { MapPin, Phone, Mail, Clock, Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
+import { MapPin, Phone, Mail, Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
 import { useState } from "react";
 import { z } from "zod";
 import { useMutation } from "@tanstack/react-query";
@@ -176,46 +176,18 @@ const ContactSection = () => {
               <div className="flex items-start">
                 <MapPin className="text-primary h-5 w-5 mr-3 mt-1" />
                 <p className="text-neutral-300">
-                  123 Corporate Tower, Business District, Mumbai - 400001, Maharashtra, India
+                  307 Gemstar Commercial Complex, Ramchandra Lane, Malad West, Mumbai 400064
                 </p>
               </div>
               
               <div className="flex items-center">
                 <Phone className="text-primary h-5 w-5 mr-3" />
-                <p className="text-neutral-300">+91 22 1234 5678</p>
+                <p className="text-neutral-300">+91 022 4064 7171</p>
               </div>
               
               <div className="flex items-center">
                 <Mail className="text-primary h-5 w-5 mr-3" />
                 <p className="text-neutral-300">info@mehtapolychem.com</p>
-              </div>
-            </div>
-            
-            <h3 className="text-xl font-semibold mb-6">Business Hours</h3>
-            
-            <div className="space-y-3 mb-8">
-              <div className="flex justify-between items-center">
-                <div className="flex items-center">
-                  <Clock className="text-primary h-5 w-5 mr-3" />
-                  <span className="text-neutral-300">Monday - Friday</span>
-                </div>
-                <span className="text-neutral-300">9:00 AM - 6:00 PM</span>
-              </div>
-              
-              <div className="flex justify-between items-center">
-                <div className="flex items-center">
-                  <Clock className="text-primary h-5 w-5 mr-3 opacity-0" />
-                  <span className="text-neutral-300">Saturday</span>
-                </div>
-                <span className="text-neutral-300">10:00 AM - 4:00 PM</span>
-              </div>
-              
-              <div className="flex justify-between items-center">
-                <div className="flex items-center">
-                  <Clock className="text-primary h-5 w-5 mr-3 opacity-0" />
-                  <span className="text-neutral-300">Sunday</span>
-                </div>
-                <span className="text-neutral-300">Closed</span>
               </div>
             </div>
             
