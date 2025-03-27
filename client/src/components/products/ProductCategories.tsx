@@ -17,11 +17,6 @@ const ProductCategories = () => {
     <section className="py-16">
       <Container>
         <div className="mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">Our Complete Product Range</h2>
-          <p className="text-muted-foreground text-center max-w-3xl mx-auto mb-12">
-            With over 30 years of industry experience, Mehta Polychem offers a comprehensive range of polymer solutions 
-            for diverse industrial needs, from standard commodity polymers to specialized engineering grades.
-          </p>
 
           {/* Commodity Polymers */}
           <div className="mb-16">
