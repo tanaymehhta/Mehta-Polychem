@@ -129,6 +129,25 @@ interface ProductCategoryCardProps {
 }
 
 const ProductCategoryCard = ({ name, applications }: ProductCategoryCardProps) => {
+  // For masterbatches, direct to Keesha website
+  const isMasterbatch = name.toLowerCase().includes('masterbatch') || name.toLowerCase().includes('filler');
+  const linkDestination = isMasterbatch 
+    ? "https://www.keesha.co.in/white-masterbatches-9291378.html" 
+    : "/contact";
+  
+  // For external links, use 'a' tag instead of Link
+  const LinkComponent = isMasterbatch 
+    ? ({ children }: { children: React.ReactNode }) => (
+        <a href={linkDestination} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-primary hover:text-primary/80">
+          {children}
+        </a>
+      )
+    : ({ children }: { children: React.ReactNode }) => (
+        <Link href={linkDestination}>
+          {children}
+        </Link>
+      );
+      
   return (
     <Card className="hover:shadow-md transition-all">
       <CardContent className="p-6">
@@ -144,10 +163,10 @@ const ProductCategoryCard = ({ name, applications }: ProductCategoryCardProps) =
           </div>
         </div>
         <Button asChild variant="link" className="p-0 h-auto text-sm" size="sm">
-          <Link href="/contact">
-            <span>Inquire</span>
+          <LinkComponent>
+            <span>{isMasterbatch ? "View Product" : "Inquire"}</span>
             <ChevronRight className="ml-1 h-3 w-3" />
-          </Link>
+          </LinkComponent>
         </Button>
       </CardContent>
     </Card>

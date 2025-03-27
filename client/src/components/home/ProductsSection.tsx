@@ -83,12 +83,19 @@ const ProductsSection = () => {
             >
               Engineering
             </FilterButton>
-            <FilterButton 
-              active={activeCategory === "masterbatch"} 
-              onClick={() => handleCategoryChange("masterbatch")}
+            {/* Use a regular button for the masterbatches filter since we're redirecting */}
+            <button
+              className={`py-2 px-5 rounded-full transition-all ${
+                activeCategory === "masterbatch" 
+                  ? "bg-primary text-white" 
+                  : "bg-white text-neutral-800 hover:bg-neutral-200"
+              }`}
+              onClick={() => {
+                window.open("https://www.keesha.co.in/white-masterbatches-9291378.html", "_blank", "noopener,noreferrer");
+              }}
             >
               Masterbatches
-            </FilterButton>
+            </button>
             <FilterButton 
               active={activeCategory === "recycled"} 
               onClick={() => handleCategoryChange("recycled")}
@@ -131,10 +138,57 @@ interface CategorySummaryCardProps {
 }
 
 const CategorySummaryCard = ({ title, count, description, onClick }: CategorySummaryCardProps) => {
+  // Check if this is the masterbatches category
+  const isMasterbatch = title.toLowerCase().includes('masterbatch');
+  
+  // Handle card click based on category
+  const handleClick = (e: React.MouseEvent) => {
+    if (isMasterbatch) {
+      // For masterbatches, open the external URL
+      window.open("https://www.keesha.co.in/white-masterbatches-9291378.html", "_blank", "noopener,noreferrer");
+    } else {
+      // For other categories, use the provided onClick handler
+      onClick();
+    }
+  };
+  
+  // For masterbatches, link directly to external site
+  const ActionButton = () => {
+    if (isMasterbatch) {
+      return (
+        <Button 
+          variant="link" 
+          className="p-0 h-auto text-sm flex items-center"
+          onClick={(e: React.MouseEvent) => {
+            e.stopPropagation();
+            window.open("https://www.keesha.co.in/white-masterbatches-9291378.html", "_blank", "noopener,noreferrer");
+          }}
+        >
+          <span>View on Keesha</span>
+          <ChevronRight className="ml-1 h-3 w-3" />
+        </Button>
+      );
+    }
+    
+    return (
+      <Button 
+        variant="link" 
+        className="p-0 h-auto text-sm flex items-center"
+        onClick={(e: React.MouseEvent) => {
+          e.stopPropagation();
+          onClick();
+        }}
+      >
+        <span>View Products</span>
+        <ChevronRight className="ml-1 h-3 w-3" />
+      </Button>
+    );
+  };
+  
   return (
     <div 
       className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all cursor-pointer"
-      onClick={onClick}
+      onClick={handleClick}
     >
       <div className="flex flex-col h-full">
         <div>
@@ -143,14 +197,7 @@ const CategorySummaryCard = ({ title, count, description, onClick }: CategorySum
         </div>
         <p className="text-sm text-muted-foreground mb-4">{description}</p>
         <div className="mt-auto">
-          <Button 
-            variant="link" 
-            className="p-0 h-auto text-sm flex items-center"
-            onClick={onClick}
-          >
-            <span>View Products</span>
-            <ChevronRight className="ml-1 h-3 w-3" />
-          </Button>
+          <ActionButton />
         </div>
       </div>
     </div>
@@ -159,7 +206,7 @@ const CategorySummaryCard = ({ title, count, description, onClick }: CategorySum
 
 interface FilterButtonProps {
   active: boolean;
-  onClick: () => void;
+  onClick: (e?: React.MouseEvent) => void;
   children: React.ReactNode;
 }
 
@@ -190,6 +237,27 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
+  // Check if this is a masterbatch product
+  const isMasterbatch = product.category === 'masterbatch';
+  
+  // Determine link destination
+  const linkDestination = isMasterbatch 
+    ? "https://www.keesha.co.in/white-masterbatches-9291378.html" 
+    : "/products";
+  
+  // Use regular Link for internal links, or <a> for external
+  const LinkComponent = isMasterbatch 
+    ? ({ children }: { children: React.ReactNode }) => (
+        <a href={linkDestination} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-primary hover:text-primary/80">
+          {children}
+        </a>
+      )
+    : ({ children }: { children: React.ReactNode }) => (
+        <Link href={linkDestination}>
+          {children}
+        </Link>
+      );
+      
   return (
     <Card className="overflow-hidden shadow-md hover:shadow-lg transition-all">
       <div className="h-48 overflow-hidden">
@@ -215,10 +283,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
             )}
           </div>
           <Button asChild variant="link" className="p-0">
-            <Link href={`/products`}>
-              <span>Details</span>
+            <LinkComponent>
+              <span>{isMasterbatch ? "Buy Now" : "Details"}</span>
               <ArrowRight className="ml-1 h-4 w-4" />
-            </Link>
+            </LinkComponent>
           </Button>
         </div>
       </CardContent>
