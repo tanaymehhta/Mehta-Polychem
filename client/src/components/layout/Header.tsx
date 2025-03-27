@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import mehtaLogo from "../../assets/mehta-logo.jpg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,11 +55,12 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link href="/">
-            <div className="text-primary font-bold text-2xl flex items-center cursor-pointer">
-              <div className="mr-2 w-10 h-10 bg-primary rounded-md flex items-center justify-center">
-                <span className="text-white font-bold">M</span>
-              </div>
-              <span>MEHTA POLYCHEM</span>
+            <div className="flex items-center cursor-pointer">
+              <img 
+                src={mehtaLogo} 
+                alt="Mehta Polychem LLP - Dealers & Importer of Polymers" 
+                className="h-12 md:h-14"
+              />
             </div>
           </Link>
 

@@ -9,6 +9,7 @@ import {
   Phone,
   Mail,
 } from "lucide-react";
+import mehtaLogo from "../../assets/mehta-logo.jpg";
 
 const Footer = () => {
   return (
@@ -16,11 +17,12 @@ const Footer = () => {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <div className="text-primary-dark font-bold text-2xl flex items-center mb-6">
-              <div className="mr-2 w-10 h-10 bg-primary rounded-md flex items-center justify-center">
-                <span className="text-white font-bold">M</span>
-              </div>
-              <span className="text-white">MEHTA POLYCHEM</span>
+            <div className="mb-6">
+              <img 
+                src={mehtaLogo} 
+                alt="Mehta Polychem LLP - Dealers & Importer of Polymers" 
+                className="h-12 bg-white rounded p-1"
+              />
             </div>
             <p className="text-neutral-400 mb-6">
               Your trusted partner in polymer distribution for over 30 years,
