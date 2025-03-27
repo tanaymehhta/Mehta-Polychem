@@ -9,7 +9,6 @@ import Products from "@/pages/Products";
 import Contact from "@/pages/Contact";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { HelmetProvider } from 'react-helmet-async';
 
 function Router() {
   return (
@@ -31,12 +30,10 @@ function Router() {
 
 function App() {
   return (
-    <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
-        <Router />
-        <Toaster />
-      </QueryClientProvider>
-    </HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <Router />
+      <Toaster />
+    </QueryClientProvider>
   );
 }
 
