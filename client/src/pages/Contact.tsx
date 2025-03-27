@@ -12,6 +12,7 @@ import { MapPin, Phone, Mail, Linkedin, Twitter, Facebook, Instagram } from "luc
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import { Helmet } from 'react-helmet-async';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
@@ -62,12 +63,23 @@ const Contact = () => {
 
   return (
     <div className="pt-24 pb-16">
+      <Helmet>
+        <title>Contact Mehta Polychem - Petrochemical Supply Chain Solutions</title>
+        <meta name="description" content="Connect with one of India's leading petrochemical trading companies for custom polymer requirements, logistics services, and comprehensive supply chain solutions." />
+        <meta name="keywords" content="Contact Mehta Polychem, Petrochemical suppliers Mumbai, Polymer distribution India, GPPS HIPS suppliers, Chemical industry suppliers, Bhiwandi stockpoint, Daman stockpoint, Supreme Petrochemicals distributor" />
+        <link rel="canonical" href="https://www.mehtapolychem.com/contact" />
+        <meta property="og:title" content="Contact Mehta Polychem - Petrochemical Supply Chain Solutions" />
+        <meta property="og:description" content="Reach out to Mehta Polychem for all your petrochemical and polymer needs. Corporate office in Mumbai with nationwide service through strategic stockpoints." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.mehtapolychem.com/contact" />
+      </Helmet>
       <Container>
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
-          <p className="text-lg text-muted-foreground">
-            Have questions or need a quote? Our team is ready to assist you.
+        <div className="max-w-3xl mx-auto text-center mb-12" itemScope itemType="https://schema.org/Organization">
+          <h1 className="text-4xl font-bold mb-4" itemProp="name">Contact Mehta Polychem - Petrochemical Supply Chain Solutions</h1>
+          <p className="text-lg text-muted-foreground" itemProp="description">
+            Connect with one of India's leading petrochemical trading companies for custom polymer requirements, logistics services, and comprehensive supply chain solutions
           </p>
+          <meta itemProp="keywords" content="Petrochemical trading, Import, Export, Distribution, Chemical industry, Supply chain solutions, Logistics services, Polymer distribution in India" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
@@ -149,22 +161,30 @@ const Contact = () => {
           </Card>
           
           <div className="space-y-6">
-            <div>
+            <div itemScope itemType="https://schema.org/Organization">
               <h2 className="text-2xl font-bold mb-6">Corporate Office</h2>
               <div className="space-y-4">
-                <div className="flex items-start">
+                <div className="flex items-start" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
                   <MapPin className="h-5 w-5 text-primary mt-1 mr-3" />
                   <p className="text-muted-foreground">
-                    307 Gemstar Commercial Complex, Ramchandra Lane, Malad West, Mumbai 400064
+                    <span itemProp="streetAddress">307 Gemstar Commercial Complex, Ramchandra Lane</span>, 
+                    <span itemProp="addressLocality">Malad West</span>, 
+                    <span itemProp="addressRegion">Mumbai</span> 
+                    <span itemProp="postalCode">400064</span>
+                    <meta itemProp="addressCountry" content="India" />
                   </p>
                 </div>
                 <div className="flex items-center">
                   <Phone className="h-5 w-5 text-primary mr-3" />
-                  <p className="text-muted-foreground">+91 022 4064 7171</p>
+                  <p className="text-muted-foreground">
+                    <a href="tel:+91-022-4064-7171" itemProp="telephone">+91 022 4064 7171</a>
+                  </p>
                 </div>
                 <div className="flex items-center">
                   <Mail className="h-5 w-5 text-primary mr-3" />
-                  <p className="text-muted-foreground">info@mehtapolychem.com</p>
+                  <p className="text-muted-foreground">
+                    <a href="mailto:info@mehtapolychem.com" itemProp="email">info@mehtapolychem.com</a>
+                  </p>
                 </div>
               </div>
             </div>

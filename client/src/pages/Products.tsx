@@ -8,6 +8,7 @@ import { ArrowRight, Filter } from "lucide-react";
 import { Link } from "wouter";
 import { polymerProducts } from "@/lib/data";
 import ProductCategories from "@/components/products/ProductCategories";
+import { Helmet } from 'react-helmet-async';
 
 const Products = () => {
   const [viewMode, setViewMode] = useState<"grid" | "categories">("grid");
@@ -36,12 +37,23 @@ const Products = () => {
 
   return (
     <div className="pt-24 pb-16">
+      <Helmet>
+        <title>Petrochemical & Polymer Products - Mehta Polychem</title>
+        <meta name="description" content="Comprehensive range of commodity polymers, engineering polymers, masterbatches, and recycled plastics for industrial applications. Official distributors of Supreme Petrochemicals." />
+        <meta name="keywords" content="Petrochemicals, Polymers, Commodity polymers, Engineering polymers, Masterbatches, Recycled plastics, GPPS, HIPS, PP, PVC, HDPE, LDPE, Nylon, ABS, SAN" />
+        <link rel="canonical" href="https://www.mehtapolychem.com/products" />
+        <meta property="og:title" content="Petrochemical & Polymer Products - Mehta Polychem" />
+        <meta property="og:description" content="Comprehensive range of high-quality polymers for diverse industrial applications including automotive, packaging, consumer goods, and more." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.mehtapolychem.com/products" />
+      </Helmet>
       <Container>
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Product Portfolio</h1>
-          <p className="text-lg text-muted-foreground">
-            Explore our comprehensive range of polymers catering to diverse industrial applications
+        <div className="max-w-3xl mx-auto text-center mb-12" itemScope itemType="https://schema.org/ProductCollection">
+          <h1 className="text-4xl font-bold mb-4" itemProp="name">Petrochemical & Polymer Products Portfolio</h1>
+          <p className="text-lg text-muted-foreground" itemProp="description">
+            Explore our comprehensive range of polymers, plastics, base oils, and industrial chemicals with efficient logistics services and supply chain solutions for diverse industries
           </p>
+          <meta itemProp="keywords" content="Petrochemicals, Polymers, Plastics, Base oils, Trading, Import, Export, Distribution, Chemical industry, Supply chain solutions, Logistics services" />
         </div>
 
         {/* View Mode Toggle */}
