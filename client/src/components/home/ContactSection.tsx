@@ -89,7 +89,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-16 bg-white">
+    <section id="contact" className="py-8 bg-white">
       <Container>
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4 text-neutral-900">Contact Us</h2>
@@ -97,11 +97,11 @@ const ContactSection = () => {
             Have questions or need a quote? Our team is ready to assist you.
           </p>
         </div>
-        
+
         <div className="flex flex-col md:flex-row gap-12">
           <div className="md:w-1/2 bg-primary/5 p-6 rounded-lg border border-primary/20">
             <h3 className="text-xl font-semibold mb-6 text-neutral-900">Get in Touch</h3>
-            
+
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <Label htmlFor="name" className="text-neutral-700">Your Name</Label>
@@ -116,7 +116,7 @@ const ContactSection = () => {
                 />
                 {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
               </div>
-              
+
               <div>
                 <Label htmlFor="email" className="text-neutral-700">Email Address</Label>
                 <Input 
@@ -130,7 +130,7 @@ const ContactSection = () => {
                 />
                 {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
               </div>
-              
+
               <div>
                 <Label htmlFor="phone" className="text-neutral-700">Phone Number</Label>
                 <Input 
@@ -144,7 +144,7 @@ const ContactSection = () => {
                 />
                 {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
               </div>
-              
+
               <div>
                 <Label htmlFor="message" className="text-neutral-700">Message</Label>
                 <Textarea 
@@ -158,7 +158,7 @@ const ContactSection = () => {
                 />
                 {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
               </div>
-              
+
               <Button 
                 type="submit" 
                 className="w-full"
@@ -168,10 +168,10 @@ const ContactSection = () => {
               </Button>
             </form>
           </div>
-          
+
           <div className="md:w-1/2">
             <h3 className="text-xl font-semibold mb-6 text-neutral-900">Corporate Office</h3>
-            
+
             <div className="space-y-4 mb-8">
               <div className="flex items-start">
                 <MapPin className="text-primary h-5 w-5 mr-3 mt-1" />
@@ -179,20 +179,20 @@ const ContactSection = () => {
                   307 Gemstar Commercial Complex, Ramchandra Lane, Malad West, Mumbai 400064
                 </p>
               </div>
-              
+
               <div className="flex items-center">
                 <Phone className="text-primary h-5 w-5 mr-3" />
                 <p className="text-neutral-700">+91 022 4064 7171</p>
               </div>
-              
+
               <div className="flex items-center">
                 <Mail className="text-primary h-5 w-5 mr-3" />
                 <p className="text-neutral-700">info@mehtapolychem.com</p>
               </div>
             </div>
-            
+
             <h3 className="text-xl font-semibold mb-6 text-neutral-900">Connect With Us</h3>
-            
+
             <div className="flex space-x-4">
               <a href="#" className="bg-muted hover:bg-primary hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-all">
                 <Linkedin className="h-5 w-5" />
